@@ -259,6 +259,6 @@ Müştərilərin sifariş sayını hesablamaq üçün əvvəlcə correlated subq
 - Correlated Subquery istifadəsi zamanı icra müddəti: 309 ms 
 - JOIN istifadəsi zamanı icra müddəti: 38 ms 
 
-Aparılan test zamanı JOIN əsaslı sorğu correlated subquery ilə müqayisədə təxminən 8.1 dəfə daha sürətli icra edilmişdir.
+Aparılan test zamanı JOIN əsaslı sorğu Correlated Subquery ilə müqayisədə təxminən 8.1 dəfə daha sürətli icra edilmişdir.
 
 Lakin bu nəticə konkret dataset və test mühiti üçün keçərlidir. Sorğuların performansı verilənlər bazası sistemi, hardware, məlumat həcmi, index-lər, cache və execution plan kimi amillərdən asılı olaraq dəyişə bilər.
