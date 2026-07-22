@@ -1,7 +1,4 @@
--- =====================================================
--- ANALYSIS 1
--- Sual: Hazırda satışda olan ən yüksək qiymətli 10 məhsul hansılardır?
--- =====================================================
+-- 1) Hazırda satışda olan ən yüksək qiymətli 10 məhsul hansılardır?
 
 SELECT 
 	   ProductID,
@@ -15,11 +12,7 @@ ORDER BY UnitPrice DESC
 LIMIT 10;
 
 
--- =====================================================
--- ANALYSIS 2
--- Sual: Hazırda stockda müəyyən edilmiş limitdən aşağı olan
--- və yenidən sifariş tələb edən məhsullar hansılardır?
--- =====================================================
+-- 2) Hazırda stockda müəyyən edilmiş limitdən aşağı olan və yenidən sifariş tələb edən məhsullar hansılardır?
 
 SELECT
       ProductID,
@@ -33,10 +26,7 @@ WHERE UnitsInStock <= ReorderLevel AND Discontinued = 0 AND UnitsOnOrder = 0
 ORDER BY UnitsInStock ASC;
 
 
--- =====================================================
--- ANALYSIS 3
--- Sual: Tələb olunan çatdırılma tarixindən gec göndərilən sifarişlər hansılardır?
--- =====================================================
+-- 3) Tələb olunan çatdırılma tarixindən gec göndərilən sifarişlər hansılardır?
 
 SELECT 
 	  OrderID,
@@ -49,15 +39,12 @@ FROM Orders
 WHERE RequiredDate < ShippedDate;
 
 
--- =====================================================
--- ANALYSIS 4
--- Sual: Qiyməti yüksək və stok səviyyəsi kritik olan məhsullar hansılardır?
--- =====================================================
+-- 4) Qiyməti yüksək olan, lakin stok səviyyəsi kritik olan məhsullar hansılardır?
 
 SELECT
       ProductID,
       ProductName,
-	    UnitPrice,
+	  UnitPrice,
       UnitsInStock,
       ReorderLevel,
       Discontinued
@@ -66,27 +53,21 @@ WHERE UnitsInStock <= ReorderLevel AND Discontinued = 0
 ORDER BY UnitPrice DESC;
 
 
--- =====================================================
--- ANALYSIS 5
--- Sual: Satışdan çıxarılan, amma hələ də stockda qalan məhsullar hansılardır?
--- =====================================================
+-- 5) Satışdan çıxarılan, amma hələ də stockda qalan məhsullar hansılardır?
 
 SELECT
     ProductID,
     ProductName,
     UnitsInStock,
     UnitPrice,
-	  ReorderLevel,
-	  Discontinued
+	ReorderLevel,
+	Discontinued
 FROM Products
 WHERE Discontinued = 1 AND UnitsInStock > 0
 ORDER BY UnitsInStock DESC;
 
 
--- =====================================================
--- ANALYSIS 6
--- Sual: Göndərilmə vaxtı yaxınlaşan, amma hələ göndərilməyən sifarişlər hansılardır?
--- =====================================================
+-- 6) Göndərilmə vaxtı yaxınlaşan, amma hələ göndərilməyən sifarişlər hansılardır?
 
 SELECT
     OrderID,
